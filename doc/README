@@ -1,0 +1,114 @@
+BC Role hasPolicy Kernel Override extension README
+
+What is the BC Role hasPolicy Kernel Override extension?
+================================
+
+BC Role hasPolicy Kernel Override is a true eZ Publish extension that
+provides an improved modified copy of the default 'eZRole' kernel
+class which provides a new method called hasPolicy.
+
+This is a copy of the kernel/classes/ezrole.php PHP class from eZ Publish GitHub master
+8a25d8730ec06cb4cbcdb9d47f13dca8b3fe9aab modified to provide hasPolicy method by default.
+
+This complete class modified to provide additional features is provided as a implmentation
+for kernel override extensions (using eZ Publish 4.x+) or kernel patches (using eZ Publish
+3.x or some other non-standard configuration).
+
+The hasPolicy method is based on lessons learned reviewing the existing methods policyList and removePolicy.
+
+This file is a modified copy of this version, Based on: https://github.com/ezsystems/ezpublish/blob/8a25d8730ec06cb4cbcdb9d47f13dca8b3fe9aab/kernel/classes/ezrole.php
+
+This solution originated in the following forum request, http://share.ez.no/forums/general/role-has-policy#comment73184
+
+With this solution you can use eZRole directly to check for a specific policy within any eZ Publish PHP context.
+
+This extension is a minimal kernel override extension.
+
+
+BC Role hasPolicy Kernel Override version
+=======================
+
+The current version of BC Role hasPolicy Kernel Override is 0.0.1
+Last Major update: January 22, 2012
+
+You can find details about changes for this
+version in doc/changelogs/CHANGELOG-0.0.1
+
+
+License
+=======
+
+This software is licensed under the GNU General Public License.
+
+The complete license agreement is included in the doc/LICENSE file.
+
+For more information or questions please contact license@brookinsconsulting.com
+
+
+Requirements
+============
+
+The following requirements exists for using BC Role hasPolicy Kernel Override extension:
+
+o  eZ publish version:
+
+   Make sure you use eZ publish version 4.x or higher. eZ Publish 4.6+ is recommended.
+
+o  PHP version:
+
+   Make sure you have PHP 5.x or higher.
+
+
+Installation
+============
+
+Details on installing BC Role hasPolicy Kernel Override are located in the file doc/INSTALL.
+
+
+Usage
+============
+
+Example PHP usage (Any eZ Publish PHP context be it cli, module view, class, kernel override, etc)
+
+This works for any PHP context when the kernel overrides direct usage of eZRole class to the kernel override extension eZRole class provided instead directly and with all required standard eZRole usage retained completely (no deviation in expected or desired behavior only new helpful functionality)
+
+Here is a most basic use case PHP snippet which has been successfully tested to perform as expected
+
+$anonymous = eZRole::fetchByName('anonymous');
+
+if ( $anonymous->hasPolicy( 'content', 'create' ) )
+{
+    echo 'has content,create policy';
+}
+else
+{
+    echo 'does not have content,create policy';
+}
+
+echo "\n\n";
+
+if ( $anonymous->hasPolicy( 'content', 'read' ) )
+{
+    echo 'has content,read policy';
+}
+else
+{
+    echo 'does not have content,read policy';
+}
+
+
+Troubleshooting
+===============
+
+1. Read the FAQ
+   ------------
+
+   Some problems are more common than others. The most common ones
+   are listed in the doc/FAQ.
+
+2. Support
+   -------
+
+   If you have find any problems not handled by this document or the FAQ you
+   can contact Brookins Consulting through the support system:
+   http://brookinsconsulting.com/contact

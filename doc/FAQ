@@ -1,0 +1,20 @@
+FAQ
+
+1. This extension provides something the default 'eZRole' kernel class of eZ Publish does not provide today, 'hasPolicy' method support.
+
+This complete class modified to provide additional features is provided as a implmentation for kernel override extensions (using eZ Publish 4.x+) or kernel patches (using eZ Publish 3.x or some other non-standard configuration).
+
+The hasPolicy method is based on lessons learned reviewing the existing methods policyList and removePolicy.
+
+This file is a modified copy of this version, Based on: https://github.com/ezsystems/ezpublish/blob/8a25d8730ec06cb4cbcdb9d47f13dca8b3fe9aab/kernel/classes/ezrole.php
+
+This solution originated in the following forum request, http://share.ez.no/forums/general/role-has-policy#comment73184
+
+With this solution you can use view parameters within your templates normally while using the bclayout/set module view like you would with the layout/set module view.
+
+This extension is a minimal kernel override extension.
+
+
+2. Using this extension is clearly documented in doc/INSTALL and doc/README
+
+
